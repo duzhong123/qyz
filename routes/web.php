@@ -24,6 +24,15 @@ Route::prefix('banner')->group(function(){
     Route::any("/del","admin\BannerController@del");//删除
     Route::any("/upd/{id}","admin\BannerController@upd");//修改展示
     Route::any("/updAdd","admin\BannerController@updAdd");//修改执行
-    Route::any("/ajaxname","admin\BannerController@ajaxname");//修改执行
-    Route::any("/ajaxshow","admin\BannerController@ajaxshow");//修改执行
+    Route::any("/ajaxname","admin\BannerController@ajaxname");//极点技改排序
+    Route::any("/ajaxshow","admin\BannerController@ajaxshow");//极点技改是否展示
+});
+//分类
+Route::prefix('category')->group(function(){
+    Route::any("/category","admin\CategoryController@category");//添加展示
+    Route::any("/categoryAdd","admin\CategoryController@categoryAdd");//添加执行
+    Route::any("/show","admin\CategoryController@show");//列表展示
+    Route::any("/del","admin\CategoryController@del");//删除
+    Route::any("/upd/{id}","admin\CategoryController@upd");//修改展示
+    Route::any("/updAdd","admin\CategoryController@updAdd");//修改执行
 });
