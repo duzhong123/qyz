@@ -35,4 +35,15 @@ Route::prefix('category')->group(function(){
     Route::any("/del","admin\CategoryController@del");//删除
     Route::any("/upd/{id}","admin\CategoryController@upd");//修改展示
     Route::any("/updAdd","admin\CategoryController@updAdd");//修改执行
+    Route::any("/ajaxname","admin\CategoryController@ajaxname");//即点即改
+});
+//分类下的内容
+Route::prefix('content')->group(function(){
+    Route::any("/content","admin\ContentController@content");//添加展示
+    Route::any("/contentAdd","admin\ContentController@contentAdd");//添加执行
+    Route::any("/show","admin\ContentController@show");//展示
+    Route::any("/del","admin\ContentController@del");//删除
+    Route::any("/ajaxname","admin\ContentController@ajaxname");//即点即改
+    Route::any("/upd/{id}","admin\ContentController@upd");//修改展示
+    Route::any("/updAdd","admin\ContentController@updAdd");//修改执行
 });

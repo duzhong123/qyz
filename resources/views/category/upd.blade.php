@@ -50,7 +50,7 @@
 	$(document).on("click","#tj",function(){
         var cate_id=$(this).data("id");
 		var cate_name=$("#cate_name").val();
-		var cate_show=$("#cate_show").val();
+		var cate_show=$('input:radio:checked').val();
 		var cate_sort=$("#cate_sort").val();
 		var data={};
 		data.cate_name=cate_name;
@@ -63,7 +63,7 @@
 			dataType:"json",
 			success:function(res){
 				if(res.code==000000){
-                    alert(res.zmsg);
+                    alert(res.msg);
                     location.href="/category/show";
                 }
 			}

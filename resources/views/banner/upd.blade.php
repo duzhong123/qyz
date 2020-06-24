@@ -55,7 +55,7 @@
         
 		var n_name=$("#n_name").val();
 		var n_url=$("#n_url").val();
-		var n_show=$("#n_show").val();
+		var n_show=$('input:radio:checked').val();
 		var n_sort=$("#n_sort").val();
 		var data={};
 		data.n_name=n_name;

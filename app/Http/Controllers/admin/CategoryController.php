@@ -54,4 +54,14 @@ class CategoryController extends Controller
             return ["code"=>"000001","msg"=>"修改失败"];
         }
     }
+    //即点即改排序
+    public function ajaxname(Request $request){
+        $id = request()->get("cate_id");
+        $new_name = request()->get("new_name");
+        // dd($id);
+        $res = Category::where("cate_id",$id)->update(["cate_sort"=>$new_name]);
+        if($res){
+            return json_encode(["code"=>"00000","msg"=>"ok"]);
+        }
+    }
 }
