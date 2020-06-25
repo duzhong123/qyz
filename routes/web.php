@@ -47,3 +47,13 @@ Route::prefix('content')->group(function(){
     Route::any("/upd/{id}","admin\ContentController@upd");//修改展示
     Route::any("/updAdd","admin\ContentController@updAdd");//修改执行
 });
+//分类图片
+Route::prefix('picture')->group(function(){
+    Route::any("/picture","admin\PictureController@picture");//添加展示
+    Route::post("/pictureAdd","admin\PictureController@pictureAdd");//添加执行
+    Route::any("/pictAdd","admin\PictureController@pictAdd");//添加执行
+    Route::any("/show","admin\PictureController@show");//展示
+    Route::any("/del","admin\PictureController@del");//删除
+    Route::any("/upd/{id}","admin\PictureController@upd");//修改展示
+    Route::any("/updAdd","admin\PictureController@updAdd");//修改展示
+});
