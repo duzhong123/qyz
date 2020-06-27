@@ -57,3 +57,8 @@ Route::prefix('picture')->group(function(){
     Route::any("/upd/{id}","admin\PictureController@upd");//修改展示
     Route::any("/updAdd","admin\PictureController@updAdd");//修改展示
 });
+//留言评论
+Route::prefix('messeges')->group(function(){
+    Route::any("/show","admin\MessegesController@show");//展示
+    Route::any("/del","admin\MessegesController@del");//删除
+});
