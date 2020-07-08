@@ -17,7 +17,7 @@
 
 Route::any("/","admin\IndexController@index")->middleware("login");
 //导航栏
-Route::prefix('banner')->group(function(){
+Route::prefix('banner')->middleware("login")->group(function(){
     Route::any("/banner","admin\BannerController@banner");//添加展示
     Route::any("/bannerAdd","admin\BannerController@bannerAdd");//添加执行
     Route::any("/show","admin\BannerController@show");//列表展示
@@ -28,7 +28,7 @@ Route::prefix('banner')->group(function(){
     Route::any("/ajaxshow","admin\BannerController@ajaxshow");//极点技改是否展示
 });
 //分类
-Route::prefix('category')->middleware("login")->group(function(){
+Route::prefix('category')->group(function(){
     Route::any("/category","admin\CategoryController@category");//添加展示
     Route::any("/categoryAdd","admin\CategoryController@categoryAdd");//添加执行
     Route::any("/show","admin\CategoryController@show");//列表展示
@@ -38,7 +38,7 @@ Route::prefix('category')->middleware("login")->group(function(){
     Route::any("/ajaxname","admin\CategoryController@ajaxname");//即点即改
 });
 //分类下的内容
-Route::prefix('content')->middleware("login")->group(function(){
+Route::prefix('content')->group(function(){
     Route::any("/content","admin\ContentController@content");//添加展示
     Route::any("/contentAdd","admin\ContentController@contentAdd");//添加执行
     Route::any("/show","admin\ContentController@show");//展示
@@ -95,4 +95,37 @@ Route::prefix('user')->group(function(){
     Route::any("/show","admin\UserController@show");//用户展示
     Route::any("/content/{id}","admin\UserController@content");//赋予角色
     Route::any("/contentAdd","admin\UserController@contentAdd");//赋予角色
+});
+
+
+//--------------------------------前台---------------------------------------------
+//首页
+Route::prefix('home')->group(function(){
+    Route::any("/index/index","index\IndexController@index");//首页展示
+    Route::any("/index/home","index\IndexController@home");//分类导航
+    Route::any("/index/content","index\IndexController@content");//分类标题
+    Route::any("/index/cate","index\IndexController@cate");//分类内容
+    Route::any("/index/tupian","index\IndexController@tupian");//分类图片
+    Route::any("/index/youqing","index\IndexController@youqing");//友情链接
+});
+//前台登录
+Route::prefix('home')->group(function(){
+    Route::any("/login/reg","index\LoginController@reg");//注册展示
+    Route::any("/login/login","index\LoginController@login");//登录展示
+    Route::any("/login/regAdd","index\LoginController@regAdd");//注册执行
+    Route::any("/login/loginAdd","index\LoginController@loginAdd");//注册执行
+});
+//展示列表
+Route::prefix('home')->group(function(){
+    Route::any("/list/list","index\ListController@list");
+    Route::any("/list/content/{id}","index\ListController@content");//内容展示
+    Route::any("/list/caiyuan","index\ListController@caiyuan");//查询左侧导航
+    Route::any("/list/cate","index\ListController@cate");//查询右侧内容
+    Route::any("/list/contents","index\ListController@contents");//查询右侧内容
+});
+//留言
+Route::prefix('home')->group(function(){
+    Route::any("/messege/messege","index\MessegesController@messege");//留言展示
+    Route::any("/messege/tijiao","index\MessegesController@tijiao");//留言添加
+    
 });

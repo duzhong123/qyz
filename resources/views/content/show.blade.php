@@ -35,7 +35,7 @@
 			<!-- banner页面样式 -->
 			<div class="banner">
 				<div class="add">
-					<a class="addA" href="/banner/banner">添加分类内容&nbsp;&nbsp;+</a>
+					<a class="addA" href="/content/content">添加分类内容&nbsp;&nbsp;+</a>
 				</div>
 				<!-- banner 表格 显示 -->
 				<div class="banShow">
